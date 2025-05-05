@@ -15,8 +15,8 @@ docker-compose up -d
 Execute the following command to start your producer. This command assumes your producer script (`producer.py`) is located in a `src/extract` directory relative to your current working directory.
 
 ```powershell
-docker run -it --rm --network=bigdatalab4_default `
-  -v ${PWD}/src:/app `
+docker run -it --rm --network=bigdatalab4_default
+  -v ${PWD}/src:/app 
   python:3.9 bash -c "pip install kafka-python requests && python /app/extract/producer.py"
 ```
 
@@ -36,9 +36,9 @@ This indicates that your producer is successfully sending messages.
 Open a new PowerShell or terminal window to check if the messages are being received by Kafka:
 
 ```
-docker-compose exec kafka /opt/bitnami/kafka/bin/kafka-console-consumer.sh `
-  --bootstrap-server localhost:9092 `
-  --topic btc-price `
+docker-compose exec kafka /opt/bitnami/kafka/bin/kafka-console-consumer.sh 
+  --bootstrap-server localhost:9092 
+  --topic btc-price 
   --from-beginning
 ```
 
